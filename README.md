@@ -4,4 +4,4 @@ This project is a demo for MapStruct. Just for learning purpose. The whole proje
 
 Owner: [daisy-world](https://github.com/daisy-world)
 
-Project: [MapStructDemo](https://github.com/daisy-world/springboot-with-mapstruct-demo/tree/development)
+Project: [springboot-with-mapstruct-demo](https://github.com/daisy-world/springboot-with-mapstruct-demo/tree/development)
