@@ -1,6 +1,7 @@
 package com.app.mapstructdemo.controller;
 
 import com.app.mapstructdemo.dto.EmployeeDTO;
+import com.app.mapstructdemo.dto.EmployeeDetailsDTO;
 import com.app.mapstructdemo.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +21,11 @@ public class EmployeeController {
     @GetMapping("/employee/{id}")
     public ResponseEntity<EmployeeDTO> getEmployeeById(@PathVariable Long id) {
         return ResponseEntity.ok(employeeService.getEmployeeById(id));
+    }
+
+    @GetMapping("/employee-details/{id}")
+    public ResponseEntity<EmployeeDetailsDTO> getEmployeeDetailsById(@PathVariable Long id) {
+        return ResponseEntity.ok(employeeService.getEmployeeDetailsById(id));
     }
 
 }
