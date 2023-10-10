@@ -2,9 +2,7 @@ package com.app.mapstructdemo.mapper;
 
 import com.app.mapstructdemo.dto.OrderDTO;
 import com.app.mapstructdemo.entity.Order;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.Named;
+import org.mapstruct.*;
 
 @Mapper(componentModel = "spring")
 public interface OrderMapper {
@@ -28,4 +26,21 @@ public interface OrderMapper {
     default String checkOrderStatusInString(boolean status) {
         return status ? "delivered" : "pending";
     }
+
+    @BeforeMapping
+    default void validateOrderDTO(OrderDTO orderDTO) {
+        if (orderDTO.getQuantity() == 0) {
+            orderDTO.setQuantity(1);
+        }
+    }
+
+    @AfterMapping
+    default void calculateSum(Order order, @MappingTarget OrderDTO orderDTO) {
+        float sum = 0;
+        if (order.getQuantity() > 0 && order.getAmount() > 0) {
+            sum = order.getAmount() * order.getQuantity();
+        }
+        orderDTO.setSum(sum);
+    }
+
 }
