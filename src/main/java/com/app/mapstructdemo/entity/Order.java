@@ -30,5 +30,7 @@ public class Order {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date date;
 
+	@Column(name="status")
+	private boolean status;
 
 }

@@ -16,5 +16,7 @@ public class OrderDTO {
 	private String description;
 	
 	private String orderDate;
+
+	private String orderStatus;
 	
 }
